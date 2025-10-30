@@ -2,16 +2,15 @@
 
 /**
 @breif Рассчитывает работу тока
-@param x сила тока
-@param y напряжение
-@param z время
+@param I сила тока
+@param U напряжение
+@param t время
 @return рассчитанное значение работы тока
 */
-double get_current_strength (double x, double y, double z);
+double get_current_operation (double I, double U, double t);
 
 /**
 * @brief Точка входа в программу
-* @param x заданный пользователем значение массы мешка
 * @return возвращает 0, если программа выполнена корректно
 */
 int main (void)
@@ -20,15 +19,17 @@ int main (void)
     double U;
 
     int t = 20*60;
+    printf("input current strength:");
     scanf("%lf", &I);
+    printf("input voltage:");
     scanf("%lf", &U);
 
-    printf("%.3lf", get_current_strength(I, U, t));
+    printf("output current operation:%.3lf", get_current_operation(I, U, t));
 
     return 0;
 }
 
-double get_current_strength (double x, double y, double z)
+double get_current_operation (double I, double U, double t)
 {
-    return x*y*z;
+    return I*U*t;
 }
