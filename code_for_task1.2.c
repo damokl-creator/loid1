@@ -5,7 +5,7 @@
  * @param l вес в граммах
  * @return возвращает рассчитаный вес в унциях
  */
-double get_weight_in_ounces (const double l);
+double get_weight_in_ounces (const double weight);
 
 /**
  * @brief точка входа в программу
@@ -20,7 +20,7 @@ int main(void)
     return 0;
 }
 
-double get_weight_in_ounces (const double l)
+double get_weight_in_ounces (const double weight)
 {
-    return l / 28.3;
+    return weight / 28.3;
 }
