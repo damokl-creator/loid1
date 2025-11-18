@@ -31,7 +31,7 @@ double getplo(const double x, const double y);
 @brief ploshad - площадь прямоугольника
 @brief ploshad - длина диогонали прямоугольника
 */
-enum {perimetr,ploshad};
+enum {perimetr,ploshad, diog};
 /*
 *@brief Считывает значение, введенное с клавиатуру с проверкой ввода
 *@return считанное значение
@@ -72,9 +72,9 @@ int main()
             printf("Вы ввели неверное значение!");
             abort();
     }
-    
+
     return 0;
-    
+
 }
 double value()
 {
