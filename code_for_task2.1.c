@@ -70,7 +70,7 @@ int main()
             printf("Длина диогонали равна %.2lf\n", getdiog(x, y));
         default:
             printf("Вы ввели неверное значение!");
-            abort();
+            return 1;
     }
 
     return 0;
