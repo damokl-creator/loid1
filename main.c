@@ -16,6 +16,13 @@ int Value(void);
 size_t getSize(char* message);
 
 /**
+ * @brief Проверяет корректность выделения памяти под массив. В случае некорректности завершает выполнение кода с ошибкой.
+ * @param arr копия массива
+ * @param size размер массива
+ */
+void checkArrMemory(int* arr, const size_t size);
+
+/**
  * @brief Считывает значения элементов массива
  * @param arr массив
  * @param size размер массива
@@ -27,21 +34,21 @@ void fillArray(int* arr, const size_t size);
  * @param arr массив
  * @param size размер массива
  */
-void printArray(int* arr, const size_t size);
+void printArray(const int* arr, const size_t size);
 
 /**
  * @brief выводит на экран индексы элементов, кратных 3
  * @param arr массив
  * @param size размер массива
  */
-void index3elements(int* arr, const size_t size);
+void index3elements(const int* arr, const size_t size);
 
 /**
  * @brief Заполняет массив случайными числами в пределах введённого пользователем диапазона
  * @param arr массив
  * @param size размер массива
  */
-void fillRandom(int* arr, const size_t size);
+void fillRandom( int* arr, const size_t size);
 
 /**
  * @brief Создаёт копию массива
@@ -73,11 +80,7 @@ int main(void)
 {
     size_t size = getSize("Input size of an array:\n");
     int* arr = malloc(size* sizeof(int));
-    if (arr == NULL)
-    {
-        fprintf(stderr,"Error");
-        exit(1);
-    }
+    checkArrMemory(arr, size);
     printf("Chose the method of filling the array:\n%d - by random\n%d - manually\n", RANDOM, MANUAL);
     int choice = Value();
     switch(choice)
@@ -135,7 +138,7 @@ void fillArray(int* arr, const size_t size)
     }
 }
 
-void printArray(int* arr, const size_t size)
+void printArray(const int* arr, const size_t size)
 {
     printf("Your array is:\n");
     for (size_t i = 0; i < size; i++)
@@ -145,7 +148,7 @@ void printArray(int* arr, const size_t size)
     printf("\n");
 }
 
-void index3elements(int* arr, const size_t size)
+void index3elements(const int* arr, const size_t size)
 {
     int result = 0;
     printf("indices of elements that are multiples of 3: ");
@@ -177,6 +180,7 @@ void fillRandom(int* arr, const size_t size)
 int* copyArray(const int* arr, const size_t size)
 {
     int* copyArr = malloc(sizeof(int)*size);
+    checkArrMemory(arr, size);
     for (size_t i = 0; i<size; i++)
     {
         copyArr[i] = arr[i];
@@ -203,4 +207,12 @@ int replaceLastKElements(int* copyArr, const size_t size) {
     }
     printf("\n");
     return 1;
+}
+
+void checkArrMemory(int* arr, const size_t size) {
+    if (arr == NULL)
+    {
+        fprintf(stderr,"Error");
+        exit(1);
+    } 
 }
