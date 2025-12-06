@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 /**
  * @brief Считывает значение с клавиатуры с проверкой ввода
@@ -23,11 +24,11 @@ void checkMinMax(const double min, const double max);
 void checkStep(const double dx);
 
 /**
- * @brief Проверяет, принадлежит ли X области определения функции (x > 0)
+ * @brief Проверяет, принадлежит ли X области определения функции (x != 0)
  * @param i значение переменной x
  * @return Возвращает 0, если X принадлежит ООФ, 1 - если не принадлежит.
  */
-int checkZero(const double x);
+bool checkZero(const double x);
 
 /**
  * @brief Рассчитывает значение функции по заданной переменной
@@ -50,7 +51,7 @@ int main(void) {
     double dx = getValue();
     checkStep(dx);
     for (double i = min; i < max + dx; i += dx) {
-        if (checkZero(i) == 1) {
+        if (checkZero(i)) {
             printf("x = %.3lf. X doesn`t belongs SoFD\n", i);
         }
         else {
@@ -83,11 +84,11 @@ double getValue() {
     return value;
 }
 
-int checkZero(const double x) {
-    if (x < DBL_EPSILON) {
-        return 1;
+bool checkZero(const double x) {
+    if (x == 0) {
+        return true;
     }
-    return 0;
+    return false;
 }
 
 double func(const double x) {
