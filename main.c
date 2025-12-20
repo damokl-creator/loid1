@@ -85,7 +85,7 @@ double getValue() {
 }
 
 bool checkZero(const double x) {
-    if ((-1) * DBL_EPSILON < x && x < DBL_EPSILON) {
+    if (fabs(x) <= DBL_EPSILON) {
         return true;
     }
     return false;
