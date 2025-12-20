@@ -50,7 +50,7 @@ int main(void) {
     printf("Insert step(dx):\n");
     double dx = getValue();
     checkStep(dx);
-    for (double i = min; i < max + dx + DBL_EPSILON; i += dx) {
+    for (double i = min; i < max + dx; i += dx) {
         if (checkZero(i)) {
             printf("x = %.3lf. X doesn`t belongs SoFD\n", i);
         }
