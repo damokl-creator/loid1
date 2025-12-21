@@ -197,8 +197,7 @@ int replaceLastKElements(int* copyArr, const size_t size) {
     }
 
     for (size_t i = (size - k); i < size; i++) {
-        copyArr[i] = -1 *
-            copyArr[i];
+        copyArr[i] = -1 * copyArr[i];
     }
     printf("Your new array is:\n");
     for (size_t j = 0; j < size; j++)
