@@ -193,7 +193,7 @@ int replaceLastKElements(int* copyArr, const size_t size) {
     int k = Value();
     if (k > size) {
         printf("Error: k must be less than or equal to the number of array elements");
-        return 0;
+        return 1;
     }
 
     for (size_t i = (size - k); i < size; i++) {
@@ -205,7 +205,7 @@ int replaceLastKElements(int* copyArr, const size_t size) {
         printf("%d ", copyArr[j]);
     }
     printf("\n");
-    return 1;
+    return 0;
 }
 
 void checkArrMemory(int* arr, const size_t size) {
