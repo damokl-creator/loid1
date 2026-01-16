@@ -205,7 +205,6 @@ int replaceLastKElements(int* copyArr, const size_t size) {
         printf("%d ", copyArr[j]);
     }
     printf("\n");
-    return 0;
 }
 
 void checkArrMemory(int* arr, const size_t size) {
