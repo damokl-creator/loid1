@@ -30,7 +30,7 @@ public:
      * @param Radi - радиус описанной окружности
      * @param p - вершина шестиугольника
      */
-    shestiugolnik(Point centre, double radi, Point p);
+    shestiugolnik(const Point& centre, const double radi, const Point& p);
 
     /**
      * @brief Расчёт длины стороны
