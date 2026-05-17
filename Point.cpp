@@ -16,25 +16,17 @@ double Point::getY() const
 {
     return this->y;
 }
-bool Point::operator==(Point p) const
+bool Point::isEqual(double a, double b)
 {
-    if (this->x == p.x && this->y == p.y)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    const double EPSILON = 1e-9;
+    return std::abs(a - b) < EPSILON;
 }
-bool Point::operator!=(Point p) const
+
+bool Point::operator==(const Point& p) const {
+    return isEqual(x, p.x) && isEqual(y, p.y);
+}
+
+bool Point::operator!=(const Point& p) const
 {
-    if (this->x != p.x || this->y != p.y)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return !(*this == p);
 }
