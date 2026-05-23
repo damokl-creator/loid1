@@ -12,15 +12,6 @@ public:
     virtual void Read(std::istream& is) = 0;
     virtual ~Shape() = default;
 
-    friend std::ostream& operator<<(std::ostream& os, const Shape& shape)
-    {
-        os << shape.toString();
-        return os;
-    }
-
-    friend std::istream& operator>>(std::istream& is, Shape& shape)
-    {
-        shape.Read(is);
-        return is;
-    }
+    friend std::ostream& operator<<(std::ostream& os, const Shape& shape);
+    friend std::istream& operator>>(std::istream& is, Shape& shape);
 };
