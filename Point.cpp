@@ -2,7 +2,9 @@
 // Created by D on 21.04.2026.
 //
 
+#include <limits>
 #include "Point.h"
+
 Point::Point(double x, double y)
 {
     this->x = x;
@@ -18,8 +20,7 @@ double Point::getY() const
 }
 bool Point::isEqual(double a, double b)
 {
-    const double EPSILON = 1e-9;
-    return std::abs(a - b) < EPSILON;
+    return std::abs(a - b) < std::numeric_limits<double>::epsilon();
 }
 
 bool Point::operator==(const Point& p) const {
