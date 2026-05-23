@@ -11,8 +11,8 @@ private:
     static const double EPS;
 
 public:
-    Point(double x = 0, double y = 0);
-    static void setMaxCoord(double max);
+    Point(const double x = 0, const double y = 0);
+    static void setMaxCoord(const double max);
 
     double getX() const;
     double getY() const;
@@ -23,8 +23,8 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Point& p);
     friend std::istream& operator>>(std::istream& is, Point& p);
 
-    Point operator+(int val) const;
-    Point operator-(int val) const;
-    Point& operator+=(int val);
-    Point& operator-=(int val);
+    Point operator+(const int val) const;
+    Point operator-(const int val) const;
+    Point& operator+=(const int val);
+    Point& operator-=(const int val);
 };
