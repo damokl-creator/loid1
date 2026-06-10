@@ -11,7 +11,7 @@ Point::Point(const double x, const double y) : x(x), y(y)
         throw std::out_of_range("Point coordinates out of screen bounds");
 }
 
-void Point::setMaxCoord(double max)
+void Point::setMaxCoord(const double max)
 {
     if (max > 0)
         maxCoord = max;
@@ -36,7 +36,7 @@ std::ostream& operator<<(std::ostream& os, const Point& p)
     return os;
 }
 
-std::istream& operator>>(std::istream& is, Point& p)
+std::istream& operator>>(std::istream& is, const Point& p)
 {
     is >> p.x >> p.y;
     if (p.x < 0 || p.x > Point::maxCoord + Point::EPS ||
@@ -45,17 +45,17 @@ std::istream& operator>>(std::istream& is, Point& p)
     return is;
 }
 
-Point Point::operator+(int val) const
+Point Point::operator+(const int val) const
 {
     return Point(x + val, y + val);
 }
 
-Point Point::operator-(int val) const
+Point Point::operator-(const int val) const
 {
     return Point(x - val, y - val);
 }
 
-Point& Point::operator+=(int val)
+Point& Point::operator+=(const int val)
 {
     x += val;
     y += val;
@@ -64,7 +64,7 @@ Point& Point::operator+=(int val)
     return *this;
 }
 
-Point& Point::operator-=(int val)
+Point& Point::operator-=(const int val)
 {
     x -= val;
     y -= val;
