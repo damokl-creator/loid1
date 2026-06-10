@@ -7,7 +7,7 @@ class Point
 private:
     double x;
     double y;
-    static double maxCoord;
+    static const double maxCoord;
     static const double EPS;
 
 public:
@@ -21,7 +21,7 @@ public:
     bool operator!=(const Point& other) const;
 
     friend std::ostream& operator<<(std::ostream& os, const Point& p);
-    friend std::istream& operator>>(std::istream& is, Point& p);
+    friend std::istream& operator>>(std::istream& is, const Point& p);
 
     Point operator+(const int val) const;
     Point operator-(const int val) const;
