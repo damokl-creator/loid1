@@ -12,25 +12,14 @@ enum Actions
  * @brief Выводит ошибку и завершает работу программы
  * @param text - текст, выводимый на экран
  */
-void ERROR(const string text)
-{
-    cerr << text << endl;
-    exit(1);
-}
+void ERROR(const string text);
+
 /**
  * @brief Считывает значение, введенное с клавиатуры
  * @return считанное значение
  */
-int get_choice()
-{
-    int number = 0;
-    cin >> number;
-    if (cin.fail())
-    {
-        ERROR("Ошибка ввода");
-    }
-    return number;
-}
+int get_choice();
+
 /**
  * @brief Точка входа в программу
  * @return Если программа выполнена корректно - 0, иначе 1
@@ -115,4 +104,21 @@ int main()
              << "Первый элемент равен: " << collection[0] << endl;
     }
     return 0;
+}
+
+int get_choice()
+{
+    int number = 0;
+    cin >> number;
+    if (cin.fail())
+    {
+        ERROR("Ошибка ввода");
+    }
+    return number;
+}
+
+void ERROR(const string text)
+{
+    cerr << text << endl;
+    exit(1);
 }
