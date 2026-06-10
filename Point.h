@@ -7,7 +7,7 @@ class Point
 private:
     double x;
     double y;
-    static const double maxCoord;
+    static double maxCoord;
     static const double EPS;
 
 public:
