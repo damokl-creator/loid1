@@ -11,8 +11,8 @@ Circle::Circle() : center(0, 0), radius(0.0) {}
 Circle::Circle(const Point& center, const Point& pointOnCircle)
     : center(center) 
 {
-    double dx = pointOnCircle.getX() - center.getX();
-    double dy = pointOnCircle.getY() - center.getY();
+    const double dx = pointOnCircle.getX() - center.getX();
+    const double dy = pointOnCircle.getY() - center.getY();
     radius = std::hypot(dx, dy);
     if (radius <= EPS)
     {
@@ -20,7 +20,7 @@ Circle::Circle(const Point& center, const Point& pointOnCircle)
     }
 }
 
-Circle::Circle(double cx, double cy, double px, double py)
+Circle::Circle(const double cx, const double cy, const double px, const double py)
     : Circle(Point(cx, cy), Point(px, py)) {}
 
 double Circle::getArea() const
