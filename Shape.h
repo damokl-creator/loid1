@@ -13,5 +13,5 @@ public:
     virtual ~Shape() = default;
 
     friend std::ostream& operator<<(std::ostream& os, const Shape& shape);
-    friend std::istream& operator>>(std::istream& is, const Shape& shape);
+    friend std::istream& operator>>(std::istream& is, Shape& shape);
 };
