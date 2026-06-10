@@ -6,7 +6,7 @@ std::ostream& operator<<(std::ostream& os, const Shape& shape)
     return os;
 }
 
-std::istream& operator>>(std::istream& is, Shape& shape)
+std::istream& operator>>(std::istream& is, const Shape& shape)
 {
     shape.Read(is);
     return is;
