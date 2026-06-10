@@ -30,10 +30,25 @@ Vector::Vector(const Vector &other) : m_elements(nullptr), m_count(other.m_count
         }
     }
 }
-Vector::Vector(Vector &&other) : m_elements(other.m_elements), m_count(other.m_count)
+Vector::Vector(Vector &&other) : m_elements(nullptr), m_count(0)
 {
-    other.m_elements = nullptr;
-    other.m_count = 0;
+    if (other.m_elements != nullptr)
+    {
+        // Выделяем новую память
+        m_elements = new int[other.m_count];
+        m_count = other.m_count;
+        
+        // Копируем данные из старого объекта в новый
+        for (size_t i = 0; i < m_count; ++i)
+        {
+            m_elements[i] = other.m_elements[i];
+        }
+        
+        // очищаем память
+        delete[] other.m_elements;
+        other.m_elements = nullptr;
+        other.m_count = 0;
+    }
 }
 std::string Vector::to_string() const
 {
