@@ -5,7 +5,7 @@
 #include <limits>
 #include "Point.h"
 
-Point::Point(double x, double y)
+Point::Point(const double x, const double y)
 {
     this->x = x;
     this->y = y;
@@ -18,7 +18,7 @@ double Point::getY() const
 {
     return this->y;
 }
-bool Point::isEqual(double a, double b)
+bool Point::isEqual(const double a, const double b)
 {
     return std::abs(a - b) < std::numeric_limits<double>::epsilon();
 }
