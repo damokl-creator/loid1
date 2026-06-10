@@ -72,7 +72,7 @@ bool Vector::is_empty() const
 {
     return m_count == 0;
 }
-void Vector::insertAt(size_t index, const int value)
+void Vector::insertAt(const size_t index, const int value)
 {
     if (index > m_count)
         index = m_count;
