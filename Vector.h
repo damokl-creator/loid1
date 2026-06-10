@@ -57,7 +57,7 @@ public:
      * @param index позиция
      * @param value новое значение
      */
-    void insertAt(size_t index, const int value);
+    void insertAt(const size_t index, const int value);
     /**
      * @brief Удаление элемента по заданному индексу
      * @param index позиция
